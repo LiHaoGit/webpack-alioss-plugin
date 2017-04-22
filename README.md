@@ -12,6 +12,9 @@
 [![node version](https://img.shields.io/npm/dm/webpack-alioss-plugin.svg)](ttps://npmjs.com/package/webpack-alioss-plugin)
 [![node version](https://badges.gitter.im/borenXue/webpack-alioss-plugin.svg)](https://gitter.im/borenXue/webpack-alioss-plugin)]
 
+<!--circleci-->
+[![node version](https://circleci.com/gh/borenXue/webpack-alioss-plugin/tree/master.svg?style=svg)](https://gitter.im/borenXue/webpack-alioss-plugin)]
+
 > 安装
 
 ```

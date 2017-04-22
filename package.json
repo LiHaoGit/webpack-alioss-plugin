@@ -9,10 +9,11 @@
     "url": "https://github.com/borenXue/webpack-alioss-plugin/issues/new"
   },
   "scripts": {
+    "myinstall": "npm install -g yarn; yarn install;",
     "dev": "export NODE_ENV=development && webpack-dev-server --inline --hot --colors --progress --config build/webpack.conf.js",
     "build": "export NODE_ENV=production && webpack --config build/webpack.conf.js",
     "appveyor:test": "eslint src/index.js",
-    "travis:test": "eslint --format 'node_modules/eslint-friendly-formatter' src/index.js",
+    "travis:test": "npm run myinstall; eslint --format 'node_modules/eslint-friendly-formatter' src/index.js",
     "eslint": "eslint --format 'node_modules/eslint-friendly-formatter' src/index.js",
     "eslint:html": "eslint --format html ./src/* -o ./dist/eslint/index.html"
   },

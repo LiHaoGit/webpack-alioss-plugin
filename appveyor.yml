@@ -34,3 +34,11 @@ test_script:
   - npm --version
   - yarn --version
   - cmd: npm run appveyor:%job_part%
+
+notifications:
+- provider: Slack
+  incoming_webhook: https://hooks.slack.com/services/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
+  channel: '#general'
+  on_build_success: true
+  on_build_failure: true
+  on_build_status_changed: true

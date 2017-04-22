@@ -81,6 +81,10 @@ module.exports = class WebpackAliOSSPlugin {
         })
     })
   }
+
+  static forTest (x: number, y: number): number {
+    return x * y
+  }
 }
 
 let uploadIndex = 0

@@ -4,7 +4,7 @@
 [![node version](https://img.shields.io/node/v/webpack-alioss-plugin.svg)](https://nodejs.org)
 [![dependencies Status](https://david-dm.org/borenxue/webpack-alioss-plugin/status.svg)](https://david-dm.org/borenxue/webpack-alioss-plugin)
 [![node version](https://img.shields.io/travis/borenXue/webpack-alioss-plugin/master.svg)](https://travis-ci.org/borenXue/webpack-alioss-plugin)
-[![node version](https://ci.appveyor.com/api/projects/status/github/borenXue/webpack-alioss-plugin?svg=true)](https://ci.appveyor.com/project/borenXue/webpack-alioss-plugin/branch/master)
+[![node version](https://ci.appveyor.com/api/projects/status/github/borenXue/webpack-alioss-plugin?svg=true&branch=master)](https://ci.appveyor.com/project/borenXue/webpack-alioss-plugin/branch/master)
 [![node version](https://img.shields.io/coveralls/borenXue/webpack-alioss-plugin.svg)](https://coveralls.io/r/borenXue/webpack-alioss-plugin)
 <a href="https://github.com/borenXue/webpack-alioss-plugin/blob/master/LICENCE"><img src="https://img.shields.io/npm/l/webpack-alioss-plugin.svg" alt="License"></a>
 

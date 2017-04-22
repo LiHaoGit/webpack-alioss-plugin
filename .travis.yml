@@ -31,6 +31,8 @@ matrix:
   fast_finish: true
 
 script: npm run travis:$JOB_PART
+script: npm run test
+script: npm run codecov
 
 after_success:
   - echo 'xbr-after-success ~_~'

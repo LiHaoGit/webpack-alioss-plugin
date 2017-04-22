@@ -34,6 +34,8 @@ test_script:
   - npm --version
   - yarn --version
   - cmd: npm run appveyor:%job_part%
+  - cmd: npm run test
+  - cmd: npm run codecov
 
 notifications:
 - provider: Slack

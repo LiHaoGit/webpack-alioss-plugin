@@ -1,3 +1,5 @@
+/* @flow */
+
 const co = require('co')
 const oss = require('ali-oss')
 const chalk = require('chalk')
@@ -5,7 +7,19 @@ const _ = require('lodash')
 const red = chalk.red
 const green = chalk.bold.green
 
-const config = {
+const config: {
+  auth: {
+    accessKeyId: string,
+    accessKeySecret: string,
+    bucket: string,
+    region: string
+  },
+  prefix: string,
+  exclude: any,
+  enableLog: boolean,
+  ignoreError: boolean,
+  removeMode: boolean
+} = {
   auth: {
     accessKeyId: '',
     accessKeySecret: '',
@@ -14,30 +28,42 @@ const config = {
   },
   prefix: '',
   exclude: /.*/,
-  enableLog: '',
+  enableLog: true,
   ignoreError: false,
   removeMode: true
 }
 let store = null
 
-const logInfo = (str) => {
+const logInfo = (str: string) => {
   !config.enableLog || console.log(str)
 }
 
 module.exports = class WebpackAliOSSPlugin {
-  constructor (cfg) {
+  constructor (cfg: {
+    accessKeyId: string,
+    accessKeySecret: string,
+    bucket: string,
+    region: string,
+    prefix: ?string,
+    exclude: ?string,
+    ignoreError: ?boolean,
+    enableLog: ?boolean,
+    deleteMode: ?boolean
+  }) {
     config.auth.accessKeyId = cfg.accessKeyId
     config.auth.accessKeySecret = cfg.accessKeySecret
     config.auth.bucket = cfg.bucket
     config.auth.region = cfg.region
-    config.prefix = cfg.prefix.endsWith('/') ? cfg.prefix : `${cfg.prefix}/`
+    config.prefix = cfg.prefix && cfg.prefix.endsWith('/') ? cfg.prefix : `${cfg.prefix}/`
     config.exclude = cfg.exclude && cfg.exclude !== '' ? cfg.exclude : config.exclude
     config.ignoreError = cfg.ignoreError ? cfg.ignoreError : false
     config.enableLog = cfg.enableLog === false ? cfg.enableLog : true
     config.removeMode = cfg.deleteMode === false ? cfg.deleteMode : true
   }
 
-  apply (compiler) {
+  apply (compiler: {
+    plugin: Function
+  }) {
     store = oss(config.auth)
     compiler.plugin('emit', (compilation, cb) => {
       uploadFiles(compilation)
@@ -78,10 +104,16 @@ const uploadFiles = (compilation) => {
   }))
 }
 
+declare var Buffer: {
+  from: Function
+}
+
 const uploadFile = (name, assetObj) => {
   return co(function *() {
     const uploadName = `${config.prefix}${name}`
-    return yield store.put(uploadName, Buffer.from(assetObj.content))
+    if (store !== null) {
+      return yield store.put(uploadName, Buffer.from(assetObj.content))
+    }
   })
 }
 

@@ -9,15 +9,24 @@ module.exports = {
   parserOptions: {
     sourceType: 'module'
   },
-  globals: {
-  },
-  extends: 'standard',
-  plugins: [],
-  'rules': {
+  globals: { },
+  extends: [
+    'standard',
+    'plugin:flowtype/recommended'
+  ],
+  plugins: [
+    'flowtype'
+  ],
+  rules: {
     'arrow-parens': 0,
     'generator-star-spacing': 0,
     'semi': 1,
     'no-trailing-spaces': 1,
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
+  },
+  settings: {
+    flowtype: {
+      'onlyFilesWithFlowAnnotation': true
+    }
   }
 }

@@ -34,3 +34,9 @@ script: npm run travis:$JOB_PART
 
 after_success:
   - echo 'xbr-after-success ~_~'
+
+notifications:
+  slack:
+    rooms:
+      - enjoy-coding-team:8PUCn7lnInAnVS4IbYekutNy#general
+      - enjoy-coding-team:8PUCn7lnInAnVS4IbYekutNy#random

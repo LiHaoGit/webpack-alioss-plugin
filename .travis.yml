@@ -30,9 +30,6 @@ matrix:
     - os: osx
   fast_finish: true
 
-before_script:
-  - bash ./ci/travis-install.sh
-
 script: npm run travis:$JOB_PART
 
 after_success:

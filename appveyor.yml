@@ -4,7 +4,7 @@ branches:
   only:
     - master
     - dev
-    -develop
+    - develop
 
 init:
   - git config --global core.autocrlf input

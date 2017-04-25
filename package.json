@@ -2,7 +2,7 @@
   "name": "webpack-alioss-plugin",
   "version": "1.0.1",
   "description": "阿里  oss-webpack 自动上传插件",
-  "main": "dist/AliOssPlugin.js",
+  "main": "dist/AliOssPlugin.js ",
   "repository": "https://github.com/borenXue/webpack-alioss-plugin.git",
   "license": "MIT",
   "bugs": {

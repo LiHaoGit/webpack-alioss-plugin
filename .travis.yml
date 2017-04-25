@@ -4,8 +4,6 @@ language: node_js
 branches:
   only:
     - master
-    - develop
-    - dev
 
 cache:
   directories:
@@ -31,14 +29,25 @@ matrix:
   fast_finish: true
 
 script: npm run travis:$JOB_PART
+<<<<<<< HEAD
 script: npm run test
 script: npm run codecov
 
 after_success:
   - echo 'xbr-after-success ~_~'
+=======
+script: npm run build
+
+after_success:
+  - echo 'test and build success ~_~'
+>>>>>>> master
 
 notifications:
   slack:
     rooms:
       - enjoy-coding-team:8PUCn7lnInAnVS4IbYekutNy#general
+<<<<<<< HEAD
       - enjoy-coding-team:8PUCn7lnInAnVS4IbYekutNy#random
+=======
+      - enjoy-coding-team:8PUCn7lnInAnVS4IbYekutNy#random
+>>>>>>> master

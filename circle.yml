@@ -20,5 +20,4 @@ test:
         parallel: false
         files:
           - src/index.js
-    - npm run test
-    - npm run codecov
+    - npm run build
